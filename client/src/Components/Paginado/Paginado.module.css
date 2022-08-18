@@ -1,0 +1,48 @@
+.buttonPaged {
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: rgb(180, 29, 115);
+  letter-spacing: 1.5px;
+  font-size: 15px;
+  /* transition: all 0.3s ease; */
+  box-shadow: rgb(138, 30, 91) 0px 10px 0px 0px;
+  color: rgb(109, 214, 255);
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  font-weight: 2rem;
+}
+
+.buttonPaged2 {
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  border: 0;
+
+  /* background-color: rgba(255, 48, 255, 0.788); */
+  letter-spacing: 1.5px;
+  font-size: 15px;
+  /* transition: all 0.3s ease; */
+  /* box-shadow: rgb(122, 21, 122) 0px 10px 0px 0px; */
+  color: rgb(109, 214, 255);
+  margin-right: 1rem;
+  font-size: 1rem;
+  font-family: monospace;
+  background-color: rgb(138, 30, 91);
+  /*50, 168, 80*/
+  box-shadow: rgb(107, 7, 64) 0px 0px 0px 0px;
+  transform: translateY(5px);
+  /* transition: 50ms; */
+}
+
+.buttonPaged:hover {
+  background-color: rgb(180, 29, 115);
+  /*50, 168, 80*/
+  box-shadow: rgb(107, 7, 64) 0px 7px 0px 0px;
+  transform: translateY(5px);
+  transition: 200ms;
+}
+
+.buttonPaged .buttonPaged:hover {
+  box-shadow: rgb(107, 7, 64) 0px 7px 0px 0px;
+  transition: 200ms;
+}
