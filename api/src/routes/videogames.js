@@ -1,7 +1,4 @@
-const { Router } = require("express");
 const axios = require("axios");
-const e = require("express");
-const router = Router();
 const { Videogame, Genres } = require("../db");
 const { APIKEY } = process.env;
 
@@ -26,7 +23,54 @@ async function getVideoGamesApi() {
 
   console.log("GAMES API");
   return concat;
+
+  // let countData = 100000;
+  // const requireDataApi = async (page = 1, dataRes = []) => {
+  //   let data1 = await axios.get(
+  //     `https://api.rawg.io/api/games?key=${APIKEY}&page=${page}`
+  //   );
+  //   dataRes = [...dataRes, ...data1.data.results];
+  //   if (dataRes.length >= countData) {
+  //     return dataRes;
+  //   }
+  //   page++;
+  //   return requireDataApi(page, dataRes);
+  // };
+  // const DataApi = await requireDataApi();
+  // console.log(DataApi);
+  // const formatDataApi = DataApi.map((ele) => {
+  //   return {
+  //     name: ele.name[0].toUpperCase() + ele.name.slice(1),
+  //     id: ele.id,
+  //     image: ele.createdInDb ? ele.image : ele.background_image,
+  //     rating: ele.rating,
+  //     genres: ele.genres.map((g) => g.name),
+  //     createdInDb: ele.createdInDb,
+  //   };
+  // });
+  // console.log(formatDataApi.length);
+  // return formatDataApi;
 }
+
+// function getVideoGamesApi() {
+// let arr = [];
+// return function () {
+//   console.log(arr, "HOLAAA");
+//   for (let i = 0; i <= 1; i++) {
+//     let urls = axios
+//       .get(
+//         `https://api.rawg.io/api/games?key=${APIKEY}page_size=40&page=${
+//           i + 1
+//         }`
+//       )
+//       .then((data) => {
+//         arr.push(data.data.results);
+//       })
+//       .catch((error) => console.log(error));
+//   }
+//   console.log(arr, "HOLAAA");
+// };
+// }
 
 async function getVideoGamesDb() {
   const gamesDb = await Videogame.findAll({
@@ -53,7 +97,7 @@ async function getConcatenados(name) {
   } else {
     const api = await getVideoGamesApi();
     const db = await getVideoGamesDb();
-    const concat = db.concat(api);
+    const concat = api.concat(db);
 
     let mapLimpieza = concat.map((ele) => {
       return {
@@ -91,6 +135,15 @@ async function getVideoGamesQuery(name) {
   return pedido;
 }
 
+async function deleteGame(id) {
+  await Videogame.destroy({
+    where: {
+      id: id,
+    },
+  });
+}
+
 module.exports = {
   getConcatenados,
+  deleteGame,
 };

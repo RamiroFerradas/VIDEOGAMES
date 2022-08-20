@@ -25,11 +25,11 @@
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  /* margin-left: 34%; */
+  margin-right: 5rem;
   margin-top: 8rem;
   align-items: center;
   text-align: center;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .divTitulo:hover {
@@ -45,7 +45,7 @@
   align-items: center;
   /* text-align: center; */
   margin-right: 15rem;
-  margin-top: 14rem;
+  /* margin-top: 14rem; */
   text-align: center;
   font-size: 1.1rem;
 }
@@ -89,30 +89,98 @@
   font-size: 1.3rem;
   text-shadow: 2px 2px 3px black;
 }
-.divName {
-  /* float: left;
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
-  margin-top: 17rem;
-  margin-left: 10rem; */
+.divName input {
+  background-color: #212121;
+  /* max-width: 42rem; */
+  height: 2rem;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid rgb(253, 99, 194);
+  border-radius: 5px;
+  /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+  /* margin-top: 2.5rem; */
+  margin-left: 2rem;
+  color: rgb(255, 0, 157);
+}
+
+.divName input:focus {
+  text-decoration: none;
+  color: rgb(255, 0, 157);
+  background-color: #2121212a;
+  outline-color: rgb(253, 99, 194);
+  box-shadow: -3px -3px 15px rgb(253, 99, 194);
+  transition: 0.1s;
+  transition-property: box-shadow;
+}
+.divReleased input {
+  color: rgb(255, 0, 157);
+  background-color: #212121;
+  /* max-width: 42rem; */
+  height: 2rem;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid rgb(253, 99, 194);
+  border-radius: 5px;
+  /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+  /* margin-top: 2.5rem; */
+  margin-left: 2rem;
+}
+.divRating input:focus {
+  text-decoration: none;
+  color: rgb(255, 0, 157);
+  background-color: #2121212a;
+  outline-color: rgb(253, 99, 194);
+  box-shadow: -3px -3px 15px rgb(253, 99, 194);
+  transition: 0.1s;
+  transition-property: box-shadow;
+}
+.divRating input {
+  color: rgb(255, 0, 157);
+  background-color: #212121;
+  /* max-width: 42rem; */
+  height: 2rem;
+  width: 7rem;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid rgb(253, 99, 194);
+  border-radius: 5px;
+  /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+  margin-left: 2rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* -webkit-appearance: none; */
+  margin: 0;
+  opacity: 0.2;
+}
+
+.divReleased input:focus {
+  color: rgb(255, 0, 157);
+  /* text-decoration: none; */
+  color: rgb(255, 0, 157);
+  background-color: #2121212a;
+  outline-color: rgb(253, 99, 194);
+  box-shadow: -3px -3px 15px rgb(253, 99, 194);
+  transition: 0.1s;
+  transition-property: box-shadow;
 }
 .primerColumna {
   /* color: white; */
-  font-size: 1.3rem;
-  margin-left: 20rem;
-  margin-top: 18rem;
+  font-size: 1.2rem;
+  margin-left: 17rem;
+  margin-top: 2rem;
   float: left;
   /* width: 10rem; */
   position: fixed;
   color: rgb(255, 0, 157);
 }
 .primerColumna .divName {
-  min-height: 4.5rem;
+  min-height: 6rem;
 }
 
 .primerColumna .divReleased {
-  min-height: 4.5rem;
+  min-height: 6rem;
 }
 .divReleased label {
   color: rgb(255, 0, 157);
@@ -120,7 +188,7 @@
   text-shadow: 2px 2px 3px black;
 }
 .primerColumna .divRating {
-  min-height: 4.5rem;
+  min-height: 6rem;
 }
 
 .divRating label {
@@ -130,9 +198,9 @@
 }
 .divGenres {
   min-height: 5rem;
-  margin-top: 18.5rem;
+  margin-top: 6rem;
   color: rgb(255, 255, 255);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   column-count: 2;
   position: fixed;
   width: 30rem;
@@ -143,38 +211,35 @@
   padding-right: 20rem;
   text-align: center;
   font-size: 1.3rem;
+  text-shadow: 2px 2px 3px black;
 }
 
 .segundaColumna {
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   /* column-gap: 5px; */
   position: fixed;
-  margin-left: 55rem;
-}
-
-.segundaColumna .mapGeneros {
-  /* display: flex; */
-
-  /* position: absolute;
-  height: 10rem;
-  width: 10rem; */
+  margin-left: 61rem;
 }
 
 .divPlat {
-  line-height: 30px;
-  margin-top: 3rem;
+  line-height: 27.5px;
+  margin-top: 1rem;
   color: rgb(255, 0, 157);
   color: white;
   margin-right: 15rem;
   position: fixed;
 }
 .platTitulo {
+  margin-bottom: 1rem;
   color: rgb(255, 0, 157);
+  text-shadow: 2px 2px 3px black;
 }
 .errores {
+  margin-top: 0.8rem;
   font-size: 1rem;
   color: red;
+  text-shadow: 2px 2px 3px rgb(146, 140, 140);
   /* width: 21rem; */
 }
 .labelGenres {
@@ -184,16 +249,17 @@
   margin-right: 2rem;
   margin-bottom: 2rem;
   float: left;
-  margin-top: 16rem;
+  margin-top: 2rem;
   /* display: flex; */
   /* padding-bottom: 10rem; */
   color: rgb(255, 0, 157);
   /* position: fixed; */
   margin-left: 7rem;
+  text-shadow: 2px 2px 3px black;
 }
 .segundaColumna .errores {
   position: fixed;
-  margin-top: 47rem;
+  margin-top: 33.3rem;
   /* float: right; */
   /* background-color: red; */
 }
@@ -233,6 +299,7 @@
   position: relative;
   height: 2.8em;
   padding-right: 3.3em;
+  margin-left: 7rem;
 }
 
 .buttonCreated1 .iconCreated {
@@ -270,12 +337,13 @@
 }
 
 .buttonCreate {
-  margin-top: 50rem;
+  margin-top: 37rem;
   margin-left: 60rem;
 }
 
 .buttonCreated1:disabled,
 button[disabled] {
+  cursor: default;
   /* border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666; */
@@ -283,12 +351,19 @@ button[disabled] {
 .buttonCreated1 .iconCreated svg :disabled,
 button[disabled] {
   border: 1px solid #999999;
+  cursor: default;
   background-color: #cccccc1a;
   color: #8f8888;
 }
 
 .buttonCreated1:disabled .iconCreated {
   background-color: #cccccc8e;
+  cursor: default;
   width: calc(35% - 0.6em);
   box-shadow: 0.1em 0.1em 0.6em 0.2em #f6f5f700;
+}
+
+.inputGenres {
+  background-color: rgb(48, 19, 174);
+  /* color: rgb(155, 22, 22); */
 }

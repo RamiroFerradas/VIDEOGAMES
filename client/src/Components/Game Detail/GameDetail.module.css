@@ -1,5 +1,5 @@
 .image {
-  display: flex;
+  /* display: flex; */
   margin-top: 3.3em;
   margin-left: 12rem;
   max-width: 50rem;
@@ -152,3 +152,71 @@
 .cssbuttons-io-button:active .icon {
   transform: scale(0.95);
 }
+
+/* button delete */
+
+.buttonDelete {
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  background: #e62222;
+  margin-top: 40rem;
+  /* float: right; */
+  margin-left: 35rem;
+}
+
+.buttonDelete,
+.buttonDelete span {
+  transition: 200ms;
+}
+
+.buttonDelete .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+}
+
+.buttonDelete .icon {
+  position: absolute;
+  border-left: 1px solid #c41b1b;
+  transform: translateX(110px);
+  height: 30px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonDelete svg {
+  width: 15px;
+  fill: #eee;
+}
+
+.buttonDelete:hover {
+  background: #ff3636;
+}
+
+.buttonDelete:hover .text {
+  color: transparent;
+}
+
+.buttonDelete:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+}
+
+.buttonDelete:focus {
+  outline: none;
+}
+
+.buttonDelete:active .icon svg {
+  transform: scale(0.8);
+}
+/* button delete */

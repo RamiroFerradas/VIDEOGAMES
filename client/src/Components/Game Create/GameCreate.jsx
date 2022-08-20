@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGenres, getVideogames, postGame } from "../../redux/actions";
+import {
+  deleteGame,
+  getGenres,
+  getVideogames,
+  postGame,
+} from "../../redux/actions";
 import { NavLink, useNavigate } from "react-router-dom";
 import styles from "../Game Create/GameCreate.module.css";
 import { MdArrowBackIosNew } from "react-icons/md";
@@ -14,7 +19,7 @@ export default function GameCreate() {
     name: "",
     description: "",
     released: "",
-    rating: 0,
+    rating: null,
     platforms: [],
     genres: [],
   });
@@ -34,7 +39,6 @@ export default function GameCreate() {
       ...input,
       [e.target.name]: e.target.value,
     });
-    console.log(e.target.value);
     setErrors(
       validate({
         ...input,
@@ -121,26 +125,25 @@ export default function GameCreate() {
     //name
     if (
       allgames.find(
-        (ele) => ele.name.toUpperCase() === input.name.toUpperCase()
+        (ele) => ele.name?.toLowerCase() === input.name?.toLowerCase()
       )
     )
       errors.name = "Ya existe un juego con este nombre, escoge otro!";
-    if (!input.name) errors.name = "Tu juego necesita un nombre!";
+    if (input.name === "") errors.name = "Tu juego necesita un nombre!";
 
     if (/[^\w\s]/.test(input.name))
       errors.name =
         "El nombre de tu juego no puede contener caracteres especiales";
     //description
-    if (!input.description)
+    if (input.description === "")
       errors.description = "Tu juego necesita una description!";
-    if (input.description <= 50)
+    if (input.description.length < 50)
       errors.description = "Tu juego necesita una description mas larga!";
     //released
     if (!input.released)
       errors.released = "Tu juego necesita fecha de lanzamiento!";
     //rating
-    if (input.rating > 100)
-      errors.rating = "El rating no puede ser mayor a 100!";
+    if (input.rating > 5) errors.rating = "El rating no puede ser mayor a 5!";
     if (!input.rating) errors.rating = "Tu juego necesita rating!";
 
     //platforms
@@ -163,6 +166,7 @@ export default function GameCreate() {
       input.description.length < 50 ||
       input.released.length < 1 ||
       input.rating.length < 1 ||
+      input.rating.length > 5 ||
       input.platforms.length < 1 ||
       input.genres.length < 1
     ) {
@@ -196,13 +200,13 @@ export default function GameCreate() {
                 name="description"
                 // placeholder="Description..."
                 cols="50"
-                rows="23"
+                rows="22"
                 onChange={(e) => handleChangeInput(e)}
                 value={input.description}
                 className={styles.textarea}
               />
               <div className={styles.errores}>
-                {errors.description && <p>{errors.description}</p>}
+                {errors.description && <p>⚠ {errors.description}</p>}
               </div>
             </div>
           </form>
@@ -219,7 +223,7 @@ export default function GameCreate() {
                   name="name"
                 />
                 <div className={styles.errores}>
-                  {errors.name && <p>{errors.name}</p>}
+                  {errors.name && <p>⚠ {errors.name}</p>}
                 </div>
               </div>
               <div className={styles.divReleased}>
@@ -232,7 +236,7 @@ export default function GameCreate() {
                   id={input.name}
                 />
                 <div className={styles.errores}>
-                  {errors.released && <p>{errors.released}</p>}
+                  {errors.released && <p>⚠ {errors.released}</p>}
                 </div>
               </div>
               <div className={styles.divRating}>
@@ -240,14 +244,15 @@ export default function GameCreate() {
                 <input
                   name="rating"
                   type="number"
+                  step="0.1"
                   min="0"
-                  max="100"
+                  max="5"
                   onChange={(e) => handleChangeInput(e)}
                   value={input.rating}
                   id={input.name}
                 />
                 <div className={styles.errores}>
-                  {errors.rating && <p>{errors.rating}</p>}
+                  {errors.rating && <p>⚠ {errors.rating}</p>}
                 </div>
               </div>
             </form>
@@ -344,7 +349,7 @@ export default function GameCreate() {
                 </div>
               </form>
               <div className={styles.errores}>
-                {errors.platforms && <p>{errors.platforms}</p>}
+                {errors.platforms && <p>⚠ {errors.platforms}</p>}
               </div>
             </div>
           </div>
@@ -362,7 +367,7 @@ export default function GameCreate() {
                       <input
                         value={ele.id}
                         name={ele.name}
-                        className="form-check-input"
+                        className={`form-check-input ${styles.inputGenres}`}
                         type="checkbox"
                         role="switch"
                         id="flexSwitchCheckDefault"
@@ -375,7 +380,7 @@ export default function GameCreate() {
             </form>
           </div>
           <div className={styles.errores}>
-            {errors.genres && <p>{errors.genres}</p>}
+            {errors.genres && <p>⚠ {errors.genres}</p>}
           </div>
         </div>
         <div className={styles.buttonCreate}>

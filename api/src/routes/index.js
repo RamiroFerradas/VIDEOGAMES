@@ -84,4 +84,14 @@ router.post("/videogames", async (req, res) => {
   }
 });
 
+router.delete("/videogames/:id", async (req, res) => {
+  let { id } = req.params;
+  try {
+    res.status(200).json(await modelsV.deleteGame(id));
+    console.log(`Se borro el videogame id ${id} con exito! Saludos del back!!`);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;

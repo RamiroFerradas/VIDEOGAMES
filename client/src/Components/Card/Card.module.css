@@ -84,9 +84,10 @@
   overflow: hidden;
 }
 .image {
-  max-height: 10vh;
-  max-width: 12vw;
+  /* max-height: 10vh;
+  max-width: 12vw; */
   border-radius: 5px;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
 }

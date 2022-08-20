@@ -132,11 +132,24 @@ export default function rootReducer(state = initialState, action) {
         videogames: [...state.videogames, action.payload],
       };
 
+    case "DELETE_GAME":
+      let filt = state.videogames.filter((ele) => ele !== action.payload);
+      return {
+        ...state,
+        videogames: filt,
+      };
+
     case "CLEAN_CACHE":
       return {
         ...state,
         details: [],
-        // videogames: state.allVideogames,
+        page: 1,
+      };
+    case "CLEAN_CACHE_ALL":
+      return {
+        ...state,
+        details: [],
+        videogames: [],
         page: 1,
       };
     case "RECARGAR_GAMES":

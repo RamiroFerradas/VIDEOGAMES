@@ -3,7 +3,7 @@ import axios from "axios";
 export function getVideogames() {
   return async function (dispatch) {
     try {
-      let json = (await axios(`http://localhost:3001/videogames`)).data;
+      let json = (await axios(`/videogames`)).data;
 
       return dispatch({
         type: "GET_VIDEOGAMES",
@@ -17,7 +17,7 @@ export function getVideogames() {
 export function getGenres() {
   return async function (dispatch) {
     try {
-      let json = (await axios(`http://localhost:3001/genres`)).data;
+      let json = (await axios(`/genres`)).data;
 
       return dispatch({
         type: "GET_GENRES",
@@ -32,8 +32,7 @@ export function getGenres() {
 export function searchGame(name) {
   return async function (dispatch) {
     try {
-      let json = (await axios(`http://localhost:3001/videogames?name=${name}`))
-        .data;
+      let json = (await axios(`/videogames?name=${name}`)).data;
       return dispatch({
         type: "SEACH_GAME",
         payload: json,
@@ -52,7 +51,7 @@ export function searchGameGlobal(name) {
 export function gameDetail(id) {
   return async function (dispatch) {
     try {
-      let json = (await axios(`http://localhost:3001/videogame/${id}`)).data;
+      let json = (await axios(`/videogame/${id}`)).data;
 
       return dispatch({
         type: "GAME_DETAIL",
@@ -67,8 +66,7 @@ export function gameDetail(id) {
 export function postGame(payload) {
   return async function (dispatch) {
     try {
-      let json = (await axios.post(`http://localhost:3001/videogames`, payload))
-        .data;
+      let json = (await axios.post(`/videogames`, payload)).data;
       return dispatch({
         type: "POST_GAME",
         paylaod: json,
@@ -76,6 +74,16 @@ export function postGame(payload) {
     } catch (error) {
       console.log(error.message, "error en el post");
     }
+  };
+}
+export function deleteGame(id) {
+  return async function (dispatch) {
+    let json = await axios.delete(`/videogames/${id}`);
+    console.log(json, "action delete");
+    return dispatch({
+      type: "DELETE_GAME",
+      paylaod: json.data,
+    });
   };
 }
 
@@ -112,6 +120,11 @@ export function setCurrentPage(payload) {
 }
 
 export function cleanCache() {
+  return {
+    type: "CLEAN_CACHE",
+  };
+}
+export function cleanCacheAll() {
   return {
     type: "CLEAN_CACHE",
   };
