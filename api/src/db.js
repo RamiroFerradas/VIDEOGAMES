@@ -2,7 +2,17 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const {
+  DB_USER,
+  DB_PASSWORD,
+  DB_HOST,
+  DB_NAME,
+  DB_PORT,
+  LOCAL_DB_USER,
+  LOCAL_DB_PASSWORD,
+  LOCAL_DB_HOST,
+  LOCAL_DB_NAME,
+} = process.env;
 
 let sequelize =
   process.env.NODE_ENV === "production"
@@ -10,7 +20,7 @@ let sequelize =
         database: DB_NAME,
         dialect: "postgres",
         host: DB_HOST,
-        port: 5432,
+        port: DB_PORT,
         username: DB_USER,
         password: DB_PASSWORD,
         pool: {
@@ -29,7 +39,7 @@ let sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`,
+        `postgres://${LOCAL_DB_USER}:${LOCAL_DB_PASSWORD}@${LOCAL_DB_HOST}/${LOCAL_DB_NAME}`,
         {
           logging: false,
           native: false,

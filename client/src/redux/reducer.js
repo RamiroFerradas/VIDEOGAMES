@@ -30,6 +30,7 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         page: action.payload,
       };
+
     case "SEACH_GAME":
       return {
         ...state,
@@ -58,6 +59,7 @@ export default function rootReducer(state = initialState, action) {
         if (action.payload === "all") {
           return state.allVideogames;
         } else {
+          console.log(ele.genres, "holaa");
           return ele.genres.includes(action.payload);
         }
       });

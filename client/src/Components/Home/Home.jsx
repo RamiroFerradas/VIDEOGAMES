@@ -37,7 +37,7 @@ export default function Home() {
       setCurrentPage(1);
       return allVideogames;
     }
-  }, [allVideogames, dispatch]);
+  }, [allVideogames, allVideogames2, dispatch]);
 
   return loading ? (
     <Loading />
