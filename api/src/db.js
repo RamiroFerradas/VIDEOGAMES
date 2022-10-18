@@ -38,12 +38,12 @@ console.log(
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-        database: PGDATABASE,
+        database: DB_NAME || PGDATABASE,
         dialect: "postgres",
-        host: PGHOST,
-        port: PGPORT,
-        username: PGUSER,
-        password: PGPASSWORD,
+        host: DB_HOST || PGHOST,
+        port: DB_PORT || PGPORT,
+        username: DB_USER || PGUSER,
+        password: DB_PASSWORD || PGPASSWORD,
         pool: {
           max: 3,
           min: 1,
