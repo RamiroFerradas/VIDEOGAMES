@@ -21,7 +21,6 @@ const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 
 // Syncing all the models at once.
-console.log(process.env.APIKEY, "API");
 conn.sync({ force: false }).then(() => {
   const PORT = 3001;
   server.listen(process.env.PORT || process.env.PGPORT || PORT, () => {
