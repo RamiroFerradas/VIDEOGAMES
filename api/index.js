@@ -24,8 +24,12 @@ const { conn } = require("./src/db.js");
 console.log(process.env.APIKEY, "API");
 conn.sync({ force: false }).then(() => {
   const PORT = 3001;
-  server.listen(process.env.PORT || PORT, () => {
-    const port = process.env.DB_PORT ? process.env.DB_PORT : PORT;
+  server.listen(process.env.PORT || process.env.PGPORT || PORT, () => {
+    const port = process.env.DB_PORT
+      ? process.env.DB_PORT
+      : process.env.PGPORT
+      ? process.env.PGPORT
+      : PORT;
     console.log(` TODO OK !! ESCUCHANDO PUERTO ${port}!!`);
   });
 });
