@@ -18,22 +18,6 @@ const {
   PGPASSWORD,
   PGUSER,
 } = process.env;
-console.log(
-  DB_USER,
-  DB_PASSWORD,
-  DB_HOST,
-  DB_NAME,
-  DB_PORT,
-  LOCAL_DB_USER,
-  LOCAL_DB_PASSWORD,
-  LOCAL_DB_HOST,
-  LOCAL_DB_NAME,
-  PGDATABASE,
-  PGHOST,
-  PGPORT,
-  PGPASSWORD,
-  PGUSER
-);
 
 let sequelize =
   process.env.NODE_ENV === "production"
