@@ -41,7 +41,6 @@ export default function Navbar() {
       </div>
 
       <Link to={"/create"}>
-        {/* <BsPlusCircleFill className={styles.BsPlusCircleFill} /> */}
         <button className="icon-btn add-btn">
           <div className="add-icon"></div>
           <div className="btn-txt">Add Game</div>
