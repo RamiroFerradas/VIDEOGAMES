@@ -17,18 +17,7 @@ export default function Navbar() {
   };
 
   return (
-    <div>
-      <Link to="/home">
-        <div className="tituloApp">Videogames</div>
-        <link
-          async
-          href="https://fonts.googleapis.com/css?family=Warnes"
-          data-generated="http://enjoycss.com"
-          rel="stylesheet"
-          type="text/css"
-        />
-      </Link>
-
+    <div className="body1">
       <div className="recarga">
         <button
           className="cssbuttons-io-button"
@@ -39,7 +28,18 @@ export default function Navbar() {
           </div>
         </button>
       </div>
-
+      <div className="tituloApp">
+        Videogames
+        <Link to="/home">
+          <link
+            async
+            href="https://fonts.googleapis.com/css?family=Warnes"
+            data-generated="http://enjoycss.com"
+            rel="stylesheet"
+            type="text/css"
+          />
+        </Link>
+      </div>
       <Link to={"/create"}>
         <button className="icon-btn add-btn">
           <div className="add-icon"></div>

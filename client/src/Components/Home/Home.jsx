@@ -30,6 +30,7 @@ export default function Home() {
   );
 
   useEffect(() => {
+    console.log(allVideogames.length);
     if (allVideogames !== allVideogames2) {
       dispatch(getVideogames());
       setCurrentPage(1);

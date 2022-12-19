@@ -1,3 +1,8 @@
+.body1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .BsPlusCircleFill {
   color: rgb(212, 48, 199);
   width: 4rem;
@@ -8,7 +13,6 @@
 }
 
 .icon-btn {
-  float: right;
   width: 50px;
   height: 50px;
   border: 2.5px solid rgb(212, 48, 199);
@@ -21,7 +25,6 @@
   font-weight: 500;
   font-family: inherit;
   color: white;
-  /* margin-right: 1rem; */
 }
 
 .add-btn:hover {
@@ -126,7 +129,7 @@
   position: relative;
   height: 2.8em;
   padding-right: 3.3em;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 .recarga {
   float: left;
@@ -171,23 +174,15 @@
 
 /* TITULOOO */
 
-body {
-  background-color: #000000;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  min-height: 100vh;
-  /* padding-top: 1rem; */
-}
-
 .tituloApp {
   cursor: default;
   align-items: center;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 10px;
+  /* padding: 1vw; */
   border: none;
   font: normal 48px / normal "Warnes", Helvetica, sans-serif;
   color: rgba(255, 255, 255, 1);
@@ -203,7 +198,7 @@ body {
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  padding-left: 30rem;
+  /* padding-left: 30rem; */
 }
 
 .tituloApp:hover {
