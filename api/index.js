@@ -22,9 +22,8 @@ const { conn } = require("./src/db.js");
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  const PORT = 3001;
-  server.listen(process.env.PORT || PORT, () => {
-    const port = process.env.DB_PORT ? process.env.DB_PORT : PORT;
-    console.log(` TODO OK !! ESCUCHANDO PUERTO ${port}!!`);
+  const PORT = process.env.PORT ? process.env.PORT : 3001;
+  server.listen(PORT, () => {
+    console.log(`TODO OK !! ESCUCHANDO!! puerto ${PORT}`);
   });
 });
