@@ -9,7 +9,7 @@ const {
   LOCAL_DB_NAME,
   PGDATABASE,
   PGHOST,
-  PGPORT,
+  PORT,
   PGPASSWORD,
   PGUSER,
 } = process.env;
@@ -20,7 +20,7 @@ let sequelize =
         database: PGDATABASE,
         dialect: "postgres",
         host: PGHOST,
-        port: PGPORT,
+        port: PORT,
         username: PGUSER,
         password: PGPASSWORD,
         pool: {
