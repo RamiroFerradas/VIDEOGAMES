@@ -32,7 +32,6 @@ export default function SearchBar() {
   };
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      {" "}
       <input
         className={styles.searchBar}
         type="text"

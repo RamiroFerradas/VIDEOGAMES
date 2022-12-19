@@ -3,11 +3,10 @@
   backdrop-filter: blur(1.5px);
   display: flex;
   /* float: right; */
-  margin-right: 12rem;
-  margin-left: 25%;
+  /* margin-right: 12rem; */
   border-radius: 9px;
   text-align: center;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   text-align: center;
   border-radius: 20px;
 }

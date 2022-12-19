@@ -47,14 +47,11 @@ export default function Home() {
         <Navbar />
       </div>
       <div className={`container-fluid ${styles.searchBar}`}>
-        <SearchBar />
-      </div>
-      <div>
         <Filtrados />
-      </div>
-      <div>
+        <SearchBar />
         <Ordenamientos />
       </div>
+
       <div className={styles.cardsHome}>
         {currentVideogames?.map((ele) => {
           return (
